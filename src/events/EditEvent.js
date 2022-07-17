@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
-const EditEvent = ({ todo }) => {
-  const [description, setDescription] = useState(todo.description);
+const EditEvent = ({ Events }) => {
+  const [description, setDescription] = useState(Events.eventTitle);
 
   //edit description function
 
@@ -10,7 +10,7 @@ const EditEvent = ({ todo }) => {
     try {
       const body = { description };
       const response = await fetch(
-        `http://localhost:5000/todos/${todo.todo_id}`,
+        `http://localhost:5000/events/${Events.eventId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -30,25 +30,25 @@ const EditEvent = ({ todo }) => {
         type="button"
         class="btn btn-warning"
         data-toggle="modal"
-        data-target={`#id${todo.todo_id}`}
+        data-target={`#id${Events.eventId}`}
       >
         Edit
       </button>
 
       <div
         class="modal"
-        id={`id${todo.todo_id}`}
-        onClick={() => setDescription(todo.description)}
+        id={`id${Events.eventId}`}
+        onClick={() => setDescription(Events.eventTitle)}
       >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Edit Todo</h4>
+              <h4 class="modal-title">Edit Event</h4>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
+                onClick={() => setDescription(Events.eventTitle)}
               >
                 &times;
               </button>
@@ -76,7 +76,7 @@ const EditEvent = ({ todo }) => {
                 type="button"
                 class="btn btn-danger"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
+                onClick={() => setDescription(Events.eventTitle)}
               >
                 Close
               </button>

@@ -4,28 +4,28 @@ import EditEvent from "./EditEvent";
 
 const ListEvents = () => {
 
-    const [todos, setTodos] = useState([]);
+    const [events, setEvents] = useState([]);
 
-    //delete todo function
+    //delete event function
 
-    const deleteTodo = async (id) => {
+    const deleteEvent = async (eventId) => {
         try {
-            const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+            const deleteEvent = await fetch(`http://localhost:5000/events/${eventId}`, {
                 method: "DELETE"
             });       
 
-           setTodos(todos.filter(todo => todo.todo_id !== id));
+           setEvents(events.filter(Events => Events.eventId !== eventId));
         } catch (err) {
             console.error(err.message);
         }
     }
 
-    const getTodos = async() => {
+    const getEvents = async() => {
         try {
-            const response = await fetch("http://localhost:5000/todos");
+            const response = await fetch("http://localhost:5000/events/");
             const jsonData = await response.json();
 
-           setTodos(jsonData);
+           setEvents(jsonData);
 
         } catch (err) {
             console.error(err.message);
@@ -33,7 +33,7 @@ const ListEvents = () => {
     };
 
     useEffect(() => {
-        getTodos();
+        getEvents();
     }, []);
 
     return <Fragment>
@@ -46,14 +46,14 @@ const ListEvents = () => {
                 </tr>
             </thead>
             <tbody>
-                {todos.map(todo => (
-                    <tr key={todo.todo_id}>
-                        <td>{todo.description}</td>
+                {Events.map(Events => (
+                    <tr key={Events.eventId}>
+                        <td>{Events.eventTitle}</td>
                         <td>
-                            <EditEvent todo={todo} />
+                            <EditEvent Events={Events} />
                             </td>
                         <td>
-                            <button className="btn btn-danger" onClick={() => deleteTodo(todo.todo_id)}>Delete</button>
+                            <button className="btn btn-danger" onClick={() => deleteEvent(Events.eventId)}>Delete</button>
                         </td>
                     </tr>
                 ))}
