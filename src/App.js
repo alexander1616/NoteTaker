@@ -7,6 +7,7 @@ import LoginForm from './users/LoginForm.js'
 import CurrentUserProvider from './contexts/CurrentUser.js'
 import Navigation from './Navigation'
 
+
 function App() {
   return (
     <CurrentUserProvider>
