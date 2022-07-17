@@ -46,7 +46,7 @@ const ListEvents = () => {
                 </tr>
             </thead>
             <tbody>
-                {Events.map(Events => (
+                {events.map(Events => (
                     <tr key={Events.eventId}>
                         <td>{Events.eventTitle}</td>
                         <td>

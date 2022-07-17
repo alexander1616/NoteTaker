@@ -40,7 +40,7 @@ function Navigation() {
                     </a>
                 </li>
                 <li>
-                    <a href="#" onClick={() => history.push("/events")}>
+                    <a href="#" onClick={() => history.push("/events/")}>
                         Events
                     </a>
                 </li>

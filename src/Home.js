@@ -3,7 +3,7 @@ function Home() {
       <main>
         <h1>HOME</h1>
         <div >
-          <img height="300" width="500" src="http://localhost:3000/images/frontpage.png" alt="Listpic" />
+          <img height="300" width="500" src="http://localhost:5000/images/frontpage.png" alt="Listpic" />
           <div>
             Photo by <a href="AUTHOR_LINK">Julia Martins</a>
           </div>

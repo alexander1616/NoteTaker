@@ -18,7 +18,7 @@ const EditEvent = ({ Events }) => {
         }
       );
 
-      window.location = "/";
+      //window.location = "/";
     } catch (err) {
       console.error(err.message);
     }

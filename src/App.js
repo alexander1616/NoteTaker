@@ -6,6 +6,7 @@ import SignUpForm from './users/SignUpForm.js'
 import LoginForm from './users/LoginForm.js'
 import CurrentUserProvider from './contexts/CurrentUser.js'
 import Navigation from './Navigation'
+import EventsIndex from './events/EventsIndex'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/sign-up" component={SignUpForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route path="/" component={Error404} />
+        <Route path="/events/" component={EventsIndex} />
       </Switch>
       </BrowserRouter>
     </CurrentUserProvider>
@@ -26,3 +28,4 @@ function App() {
 }
 
 export default App;
+
